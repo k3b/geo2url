@@ -1,6 +1,6 @@
 # 🌍📷 Photos Nearby for Android
 
-Show Photos from commons.wikimedia.org that that are near a given geo-location in a webbrowser.
+Show Photos from commons.wikimedia.org that are near a given geo-location in a webbrowser.
 
 ## Uscase: 
 
@@ -14,9 +14,8 @@ In your navigation app
 * choose "🌍📷 Photos Nearby" as destination 
 * => The webbrowser opens with a web page with photos near the selected place.  
 
-
-![](https://raw.githubusercontent.com/k3b/geo2url/main/fastlane/metadata/android/en-US/images/phoneScreenshots/1-ShareInNaviApp.png)
-![](https://raw.githubusercontent.com/k3b/geo2url/main/fastlane/metadata/android/en-US/images/phoneScreenshots/2-PhotosFoundInWebBrowser.png)
+![](https://raw.githubusercontent.com/k3b/geo2url/master/fastlane/metadata/android/en-US/images/phoneScreenshots/1-ShareInNaviApp.png)
+![](https://raw.githubusercontent.com/k3b/geo2url/master/fastlane/metadata/android/en-US/images/phoneScreenshots/2-PhotosFoundInWebBrowser.png)
 
 
 ## Compatibility info
