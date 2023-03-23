@@ -4,6 +4,8 @@ puts the geo-location into a databasequery and asks www.wikidata.org to display 
 <p>Note: The app has no userinterface of it-s own.</p>
 <p>Note: You can use <a href="https://f-droid.org/packages/fr.free.nrw.commons/">the commons app</a> to
 upload photos to commons.wikimedia.org.</p>
+<p>Note: There is a similar app <a href="https://f-droid.org/packages/de.k3b.android.geo2articlesmap/">AndroidGeo2ArticlesMap</a>
+that shows articles from wikipedia/wikivoyage near the selected location in a geographic map.</p>
 <p>Here are some f-droid apps that are compatible with <em>🌍📷 Photos Nearby</em></p>
 <ul>
 <li>navigation: <a href="https://f-droid.org/packages/net.osmand.plus/">OsmAnd</a>,</li>

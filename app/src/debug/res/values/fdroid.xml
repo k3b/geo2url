@@ -45,6 +45,9 @@ Note: The app has no userinterface of it-s own.
 Note: You can use [the commons app](https://f-droid.org/packages/fr.free.nrw.commons/) to
 upload photos to commons.wikimedia.org.
 
+Note: There is a similar app [AndroidGeo2ArticlesMap](https://f-droid.org/packages/de.k3b.android.geo2articlesmap/)
+that shows articles from wikipedia/wikivoyage near the selected location in a geographic map.
+
 Here are some f-droid apps that are compatible with *🌍📷 Photos Nearby*
 
 * navigation: [OsmAnd](https://f-droid.org/packages/net.osmand.plus/),
