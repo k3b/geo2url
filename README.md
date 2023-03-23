@@ -16,15 +16,21 @@ In your navigation app
 
 ---
 
-![](https://raw.githubusercontent.com/k3b/geo2url/master/fastlane/metadata/android/en-US/images/phoneScreenshots/1-ShareInNaviApp.png)
-
+<img src="https://raw.githubusercontent.com/k3b/geo2url/master/fastlane/metadata/android/en-US/images/phoneScreenshots/1-ShareInNaviApp.png" width="180" height="300" /><br/>
 (1-3) Inside "navigation app" open selected geo-location with "🌍📷 Photos Nearby"
 
 ---
 
-![](https://raw.githubusercontent.com/k3b/geo2url/master/fastlane/metadata/android/en-US/images/phoneScreenshots/2-PhotosFoundInWebBrowser.png)
-
+<img src="https://raw.githubusercontent.com/k3b/geo2url/master/fastlane/metadata/android/en-US/images/phoneScreenshots/2-PhotosFoundInWebBrowser.png width="180" height="340" /><br/>
 (4) As a result the webbrowser is opened with photos near the selected geo-location.
+
+## Download
+
+"🌍📷 Photos Nearby" will soon be available here:
+
+[<img src="https://f-droid.org/badge/get-it-on.png" alt="available on F-Droid app store" width="200" >](https://f-droid.org/packages/de.k3b.android.geo2url/)<br/>
+[<img src="https://github.com/k3b/intent-intercept/raw/master/app/src/debug/res/drawable/qr_code_url_geo2url_fdroid.png" alt="available on F-Droid app store" height="200" width="200">](https://f-droid.org/packages/de.k3b.android.geo2url/)
+
 
 ## Compatibility info
 
@@ -49,8 +55,8 @@ You can get geo-infos from these opensource apps
 Technically speaking the app
 
 * hooks into the android system for view/send/share events for geographic coordinates (also known as [geo: - uri](https://en.wikipedia.org/wiki/Geo_URI_scheme)),
-* Translates the geo data into SPARQL database query
-* converts the query into a https web adress
+* Translates the geo data into [SPARQL database query](https://github.com/k3b/geo2url/blob/master/app/src/main/java/de/k3b/android/geo2url/photos-nearby.sparql).
+* converts the query into a [https web adress](https://query.wikidata.org/).
 * and asks android to show the web adress in a webbrowser
 
 ## Legal stuff
