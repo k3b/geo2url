@@ -1,0 +1,28 @@
+Categories:
+  - Navigation
+  - Graphics
+  - Multimedia
+License: GPL-3.0-or-later
+AuthorName: k3b
+SourceCode: https://github.com/k3b/geo2url
+IssueTracker: https://github.com/k3b/geo2url/issues
+Changelog: https://github.com/k3b/geo2url/releases
+Donate: https://donate.wikimedia.org/
+
+AutoName: 🌍📷 Photos Nearby for Android
+
+RepoType: git
+Repo: https://github.com/k3b/geo2url
+
+Builds:
+  - versionName: v1.0
+    versionCode: 1
+    commit: v1
+    subdir: app
+    gradle:
+      - yes
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+CurrentVersion: v1.0
+CurrentVersionCode: 1

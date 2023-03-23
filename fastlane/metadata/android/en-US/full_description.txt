@@ -1,0 +1,19 @@
+<p>This app adds the option <em>🌍📷 Photos Nearby</em> to any app that can shown/send/share a geo location or <strong>geo-uri</strong> .</p>
+<p>This app hooks into the android system to intercept "view geo-uri". When getting a geo-uri it
+puts the geo-location into a databasequery and asks www.wikidata.org to display the result in a web browser.</p>
+<p>Note: The app has no userinterface of it-s own.</p>
+<p>Note: You can use <a href="https://f-droid.org/packages/fr.free.nrw.commons/">the commons app</a> to
+upload photos to commons.wikimedia.org.</p>
+<p>Here are some f-droid apps that are compatible with <em>🌍📷 Photos Nearby</em></p>
+<ul>
+<li>navigation: <a href="https://f-droid.org/packages/net.osmand.plus/">OsmAnd</a>,</li>
+<li>public transportation: <a href="https://f-droid.org/packages/de.grobox.liberario">Transportr</a> or <a href="https://f-droid.org/packages/de.schildbach.oeffi">oeffi</a></li>
+<li>translate postal address to geo <a href="https://f-droid.org/packages/name.gdr.acastus_photon">Acastus Photon </a></li>
+<li>Share your current position <a href="https://f-droid.org/packages/ca.cmetcalfe.locationshare">LocationShare</a> or <a href="https://f-droid.org/packages/net.mypapit.mobile.myposition">My Position</a></li>
+</ul>
+<hr />
+<p>Required Android Permissions:</p>
+<ul>
+<li>none
+.</li>
+</ul>

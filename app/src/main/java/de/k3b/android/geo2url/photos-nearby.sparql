@@ -1,0 +1,20 @@
+# Photos nearby hotel see https://github.com/k3b/geo2url
+#defaultView:ImageGrid
+SELECT ?place ?placeLabel ?placeDescription ?location ?image ?dist
+WHERE {
+  BIND("Point(28.22016 36.45284 )"^^geo:wktLiteral as ?hotel)
+
+  SERVICE wikibase:around {
+      ?place wdt:P625 ?location.
+      bd:serviceParam wikibase:center ?hotel.
+      bd:serviceParam wikibase:radius "1.5".
+  }
+  BIND(geof:distance(?hotel, ?location) as ?dist)
+
+  OPTIONAL {
+    ?place wdt:P18 ?image.
+  }
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en,de". }
+}
+ORDER BY ?dist
+LIMIT 50
