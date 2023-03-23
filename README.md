@@ -21,7 +21,7 @@ In your navigation app
 
 ---
 
-<img src="https://raw.githubusercontent.com/k3b/geo2url/master/fastlane/metadata/android/en-US/images/phoneScreenshots/2-PhotosFoundInWebBrowser.png width="180" height="340" /><br/>
+<img src="https://raw.githubusercontent.com/k3b/geo2url/master/fastlane/metadata/android/en-US/images/phoneScreenshots/2-PhotosFoundInWebBrowser.png" width="180" height="340" /><br/>
 (4) As a result the webbrowser is opened with photos near the selected geo-location.
 
 ## Download
@@ -29,7 +29,7 @@ In your navigation app
 "🌍📷 Photos Nearby" will soon be available here:
 
 [<img src="https://f-droid.org/badge/get-it-on.png" alt="available on F-Droid app store" width="200" >](https://f-droid.org/packages/de.k3b.android.geo2url/)<br/>
-[<img src="https://github.com/k3b/intent-intercept/raw/master/app/src/debug/res/drawable/qr_code_url_geo2url_fdroid.png" alt="available on F-Droid app store" height="200" width="200">](https://f-droid.org/packages/de.k3b.android.geo2url/)
+[<img src="https://github.com/k3b/geo2url/raw/master/app/src/debug/res/drawable/qr_code_url_geo2url_fdroid.png" alt="available on F-Droid app store" height="200" width="200">](https://f-droid.org/packages/de.k3b.android.geo2url/)
 
 
 ## Compatibility info
