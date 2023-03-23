@@ -9,14 +9,22 @@ and you want to see photos that are near this place.
 
 In your navigation app
 
-* select a place in the map (i.e. your hotel)
-* open menu "view in external app" (or "send location to" or "share location with" or ...)
-* choose "🌍📷 Photos Nearby" as destination 
-* => The webbrowser opens with a web page with photos near the selected place.  
+* (1) select a place in the map (i.e. your hotel)
+* (2) open menu "view in external app" (or "send location to" or "share location with" or ...)
+* (3) choose "🌍📷 Photos Nearby" as destination 
+* (4) => The webbrowser opens with a web page with photos near the selected place.  
+
+---
 
 ![](https://raw.githubusercontent.com/k3b/geo2url/master/fastlane/metadata/android/en-US/images/phoneScreenshots/1-ShareInNaviApp.png)
+
+(1-3) Inside "navigation app" open selected geo-location with "🌍📷 Photos Nearby"
+
+---
+
 ![](https://raw.githubusercontent.com/k3b/geo2url/master/fastlane/metadata/android/en-US/images/phoneScreenshots/2-PhotosFoundInWebBrowser.png)
 
+(4) As a result the webbrowser is opened with photos near the selected geo-location.
 
 ## Compatibility info
 
