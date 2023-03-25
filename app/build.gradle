@@ -11,10 +11,10 @@ android {
         // Android 4.4 (api19)
         minSdk 19
         targetSdk 29
-        versionCode 1
-        versionName "v1.0"
-
+        versionCode 2
+        versionName "v1.0.0.1"
         // 2023-03-23 v1.0 (1) initial release
+        // 2023-03-23 v1.0.0.1 (2) fixed F-Droid Bot issues gradlewrapper checksum
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
