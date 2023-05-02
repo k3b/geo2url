@@ -51,6 +51,7 @@
                 <data android:host="openstreetmap.org" />
                 <data android:host="maps.yandex.ru" />
                 <data android:host="maps.yandex.com" />
+                <data android:host="www.yandex.com" />
                 <data android:host="here.com" />
                 <data android:host="www.here.com" />
                 <data android:host="share.here.com" />

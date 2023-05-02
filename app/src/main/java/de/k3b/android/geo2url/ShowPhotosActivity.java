@@ -21,11 +21,23 @@ package de.k3b.android.geo2url;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
+import android.view.View;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
+import de.k3b.android.util.WebViewUtil;
 import de.k3b.geo.api.GeoPointDto;
 import de.k3b.geo.io.GeoUri;
 
@@ -39,41 +51,118 @@ public class ShowPhotosActivity extends Activity {
     private static final String PARAM_LONG = "28.22016";
     private static final String PARAM_LAT = "36.45284";
 
+    private static final String LAST_URI_KEY = "LAST_URI_KEY";
+    private static final String LAST_URI_DEFAULT = "geo:52.51,13.35";
+    private EditText editUri;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Intent geoIntent = getIntent();
-        GeoPointDto geoPointFromIntent = getGeoPointDtoFromIntent(geoIntent);
+        GeoPointDto geoPoint = getGeoPointDtoFromIntent(getIntent());
 
-        if (geoPointFromIntent != null && !GeoPointDto.isEmpty(geoPointFromIntent)) {
-            double lat = geoPointFromIntent.getLatitude();
-            double lon = geoPointFromIntent.getLongitude();
-            String url = URL_TEMPLATE.replace(PARAM_LONG, "" + lon).replace(PARAM_LAT, "" + lat);
-            Intent httpsIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-            // queryDataFromArticleServer(geoPointFromIntent, false, false);
-            startActivity(httpsIntent);
-        } else {
-            showMessage("No geo info found in " + geoIntent);
+        if (geoPoint != null) {
+            showResult(geoPoint);
+            // keep app invisible
+            finish();
+            return;
         }
-        finish();
+
+        // if called with no or invalid geo uri show demo gui
+        setContentView(R.layout.activity_demo);
+        editUri = findViewById(R.id.edit_Uri);
+        editUri.setText(loadLastUsedUri());
+
+        this.<Button>findViewById(R.id.run).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onShowResultClick();
+            }
+        });
+
+        WebView webView = findViewById(R.id.webview);
+        webView.setWebViewClient(new CustomWebViewClient());
+        WebViewUtil.setHtml(webView, getString(R.string.html));
     }
 
-    private GeoPointDto getGeoPointDtoFromIntent(Intent intent) {
+    private void onShowResultClick() {
+        GeoPointDto geoPoint = getGeoPointDtoFromUri(editUri.getText().toString());
+
+        if (geoPoint != null) {
+            showResult(geoPoint);
+            finishIfEnabled();
+        }
+    }
+
+    private void finishIfEnabled() {
+        if (this.<CheckBox>findViewById(R.id.chk_finish).isChecked()) {
+            finish();
+        }
+    }
+
+    private void showResult(@NonNull GeoPointDto geoPoint) {
+        showResult(geoPoint.getLatitude(), geoPoint.getLongitude());
+    }
+
+    private void showResult(double lat, double lon) {
+        String url = URL_TEMPLATE.replace(PARAM_LONG, "" + lon).replace(PARAM_LAT, "" + lat);
+        showResult(url);
+    }
+
+    private void showResult(String url) {
+        Intent httpsIntent = new Intent(Intent.ACTION_VIEW,Uri.parse(url));
+        startActivity(httpsIntent);
+    }
+
+    @Nullable private GeoPointDto getGeoPointDtoFromIntent(@Nullable Intent intent) {
         final Uri uri = (intent != null) ? intent.getData() : null;
-        String uriAsString = (uri != null) ? uri.toString() : null;
-        GeoPointDto pointFromIntent = null;
+        return getGeoPointDtoFromUri((uri != null) ? uri.toString() : null);
+    }
+
+    @Nullable
+    private GeoPointDto getGeoPointDtoFromUri(@Nullable String uriAsString) {
         if (uriAsString != null) {
-            showMessage("Received  " + uriAsString);
+            showMessage("Using geo-uri:  " + uriAsString);
 
             GeoUri parser = new GeoUri(GeoUri.OPT_PARSE_INFER_MISSING);
-            pointFromIntent = parser.fromUri(uriAsString, new GeoPointDto());
+            GeoPointDto pointFromIntent = parser.fromUri(uriAsString, new GeoPointDto());
+            if (pointFromIntent != null && !GeoPointDto.isEmpty(pointFromIntent)) {
+                saveLastUsedUri(uriAsString);
+                return pointFromIntent;
+            }
         }
-        return pointFromIntent;
+        showMessage("no geo-info found in:  " + uriAsString);
+        return null;
+    }
+
+    private void saveLastUsedUri(String uriAsString) {
+        final SharedPreferences prefs = PreferenceManager
+                .getDefaultSharedPreferences(this);
+        prefs.edit().putString(LAST_URI_KEY, uriAsString).apply();
+    }
+
+    private String loadLastUsedUri() {
+        final SharedPreferences prefs = PreferenceManager
+                .getDefaultSharedPreferences(this);
+        return prefs.getString(LAST_URI_KEY, LAST_URI_DEFAULT);
     }
 
     private void showMessage(String msg) {
         Log.i(TAG, getString(R.string.app_name) + ": " + msg);
         Toast.makeText(this, msg,
                 Toast.LENGTH_LONG).show();
+    }
+
+    //web view client implementation
+    private class CustomWebViewClient extends WebViewClient {
+        public boolean shouldOverrideUrlLoading(WebView view, String url)
+        {
+            showMessage("show url:  " + url);
+            saveLastUsedUri(url);
+            showResult(url);
+            finishIfEnabled();
+            //return true if this method handled the link event
+            //or false otherwise
+            return true;
+        }
     }
 }
